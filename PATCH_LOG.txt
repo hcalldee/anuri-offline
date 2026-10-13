@@ -1,0 +1,159 @@
+IRUNA TURN-BASED CLI - PATCH LOG
+================================
+Tanggal: 2026-10-13
+Status: Prototype tahap awal
+
+
+FITUR YANG SUDAH ADA
+---------------------
+1. CLI turn-based berbasis Node.js.
+2. Database player memakai data/player.json.
+3. Database world memakai data/world.json.
+4. Map episode 1 dari Fort Bailune sampai Rokoko City.
+5. Perpindahan map memakai graph nextMaps.
+6. Encounter monster random dari encounter table map aktif.
+7. Battle turn-based dengan action attack dan run.
+8. Damage player, damage monster, HP, EXP, level, dan Spina.
+9. Level up memberi 5 stat point.
+10. Alokasi stat memakai command stat <nama> <jumlah>.
+11. Stat yang tersedia: STR, AGI, VIT, INT, DEX, CRT.
+12. Critical attack sudah aktif.
+13. AGI memengaruhi miss chance serangan monster.
+14. Character dapat dihapus dengan command delete dan konfirmasi nama.
+15. CLI memiliki menu yang lebih rapi dan command clear.
+16. Battle memiliki tampilan layar terpisah.
+17. Data quest dapat diambil dari API legacy Iruna Wiki.
+18. Quest prototype mengambil data dari map sampai Rokoko City.
+19. scrape-quests all disiapkan untuk mengambil semua map.
+20. Monster ID yang tidak ditemukan di database otomatis diabaikan.
+
+
+COMMAND CLI
+-----------
+new <nama>
+    Membuat character baru.
+
+delete
+    Menghapus character setelah konfirmasi nama.
+
+status
+    Menampilkan level, HP, stat, ATK, MATK, DEF, MDEF, crit, miss chance,
+    EXP, Spina, dan status map.
+
+stat <nama> <jumlah>
+    Mengalokasikan stat point. Contoh: stat agi 3
+
+map
+    Menampilkan seluruh map prototype.
+
+move <map-id>
+    Berpindah ke map yang terhubung.
+
+explore
+    Melihat deskripsi map dan daftar encounter.
+
+battle
+    Memulai battle random.
+
+quests
+    Melihat status cache quest lokal.
+
+scrape-quests
+    Mengambil quest dari map prototype.
+
+scrape-quests all
+    Mengambil quest dari seluruh map legacy Wiki.
+
+wiki <path>
+    Mengambil ringkasan halaman dari Iruna Wiki baru.
+
+clear
+    Membersihkan layar dan menampilkan menu ulang.
+
+help
+    Menampilkan daftar command.
+
+quit
+    Keluar dari game.
+
+
+FORMULA STAT PROTOTYPE
+----------------------
+STR: ATK +2 per point.
+INT: MATK +2 dan MDEF +1 per point.
+VIT: Max HP +4 dan DEF +1 per point.
+AGI: Miss Chance +1% per point, maksimum 50%.
+DEX: Crit Chance +0.2% per point.
+CRT: Crit Chance +1% per point.
+
+Base player:
+    HP 40, ATK 8, MATK 5, DEF 2, MDEF 2, Crit 5%, Miss 0%.
+
+
+SUMBER DATA WIKI
+----------------
+Map tree episode 1:
+    https://irunawiki.com/treemap/episode%201
+
+Wiki monster/item page:
+    https://irunawiki.com/
+
+Legacy quest map API:
+    https://v1.irunawiki.com/api/mapsearch/all
+
+Legacy quest API:
+    https://v1.irunawiki.com/api/quest?map=<map-id>
+
+Environment variable opsional:
+    IRUNA_WIKI_BASE_URL
+    IRUNA_WIKI_LEGACY_BASE_URL
+
+
+STRUKTUR FILE PENTING
+---------------------
+src/cli.js
+    Loop CLI, menu, command, battle screen, dan status.
+
+src/game.js
+    Battle engine, random encounter, stat formula, level up, dan modifier.
+
+src/db.js
+    Load/save world, player, quest cache, dan delete character.
+
+src/wiki.js
+    HTTP adapter untuk Wiki baru dan API legacy quest.
+
+data/world.json
+    Definisi map, koneksi map, dan monster lokal.
+
+data/player.json
+    Save character aktif. Dibuat saat command new dijalankan.
+
+data/quests.json
+    Cache hasil scrape quest.
+
+
+VALIDASI TERAKHIR
+-----------------
+npm.cmd run check
+    Berhasil.
+
+Random encounter
+    Berhasil mengeluarkan green-slime dan wild-boar secara acak.
+
+Quest API prototype
+    Berhasil membaca 48 quest dari 11 map sampai Rokoko City.
+
+
+NEXT PATCH YANG DISARANKAN
+--------------------------
+1. Tambahkan inventory dan item consumable.
+2. Tambahkan equipment serta efek ATK/MATK/DEF.
+3. Tambahkan quest aktif, objective, reward, dan quest completion.
+4. Hubungkan monster map dengan data monster Wiki secara otomatis.
+5. Tambahkan NPC dan menu interaksi di setiap map.
+6. Tambahkan save/load battle state jika game ditutup saat battle.
+7. Tambahkan status ailment seperti poison, stun, blind, dan freeze.
+8. Tambahkan boss dan encounter rate per map.
+9. Pisahkan data prototype dan data hasil scrape agar mudah versioning.
+10. Tambahkan test otomatis untuk stat, damage, level up, dan quest parser.

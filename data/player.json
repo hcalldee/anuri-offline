@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "level": 3,
+  "exp": 18,
+  "nextExp": 45,
+  "stats": {
+    "str": 6,
+    "agi": 0,
+    "vit": 4,
+    "int": 0,
+    "dex": 0,
+    "crt": 0
+  },
+  "statPoints": 0,
+  "hp": 47,
+  "maxHp": 56,
+  "attack": 20,
+  "defense": 6,
+  "spina": 108,
+  "mapId": "bailune-city",
+  "wins": 7
+}

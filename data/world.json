@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "startMapId": "fort-bailune",
+  "mapApi": "https://irunawiki.com/treemap/episode%201",
+  "maps": {
+    "fort-bailune": {
+      "id": "fort-bailune",
+      "name": "Fort Bailune",
+      "wikiPath": "map/Fort%20Bailune",
+      "description": "Benteng awal para petualang.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["bailune-city"]
+    },
+    "bailune-city": {
+      "id": "bailune-city",
+      "name": "Bailune City",
+      "wikiPath": "map/Bailune%20City",
+      "description": "Kota pertama setelah Fort Bailune.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["micerne-plains"]
+    },
+    "micerne-plains": {
+      "id": "micerne-plains",
+      "name": "Micerne Plains",
+      "wikiPath": "map/Micerne%20Plains",
+      "description": "Dataran luas menuju wilayah Ronfa.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["rokoko-mining-village"]
+    },
+    "rokoko-mining-village": {
+      "id": "rokoko-mining-village",
+      "name": "Rokoko Mining Village",
+      "wikiPath": "map/Rokoko%20Mining%20Village",
+      "description": "Desa tambang dengan akses menuju terowongan Rokoko.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["rokoko-tunnels", "ronfa-mountains"]
+    },
+    "rokoko-tunnels": {
+      "id": "rokoko-tunnels",
+      "name": "Rokoko Tunnels",
+      "wikiPath": "map/Rokoko%20Tunnels",
+      "description": "Terowongan tambang di bawah desa Rokoko.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["rokoko-city"]
+    },
+    "ronfa-mountains": {
+      "id": "ronfa-mountains",
+      "name": "Ronfa Mountains",
+      "wikiPath": "map/Ronfa%20Mountains",
+      "description": "Pegunungan yang menghubungkan jalur awal ke Rokoko.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["ronfa-windhole", "ronfa-cave"]
+    },
+    "ronfa-windhole": {
+      "id": "ronfa-windhole",
+      "name": "Rokoko Windhole",
+      "wikiPath": "map/Rokoko%20Windhole",
+      "description": "Windhole di jalur pegunungan Ronfa.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["diel-village"]
+    },
+    "diel-village": {
+      "id": "diel-village",
+      "name": "Diel Village",
+      "wikiPath": "map/Diel%20Village",
+      "description": "Desa kecil di sekitar jalur Windhole.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["rokoko-city"]
+    },
+    "ronfa-cave": {
+      "id": "ronfa-cave",
+      "name": "Ronfa Cave",
+      "wikiPath": "map/Ronfa%20Cave",
+      "description": "Gua di jalur pegunungan Ronfa.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["ronfa-mountains-top"]
+    },
+    "ronfa-mountains-top": {
+      "id": "ronfa-mountains-top",
+      "name": "Ronfa Mountains Top",
+      "wikiPath": "map/Ronfa%20Mountains%20Top",
+      "description": "Puncak pegunungan Ronfa.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": ["rokoko-city"]
+    },
+    "rokoko-city": {
+      "id": "rokoko-city",
+      "name": "Rokoko City",
+      "wikiPath": "map/Rokoko%20City",
+      "description": "Kota tujuan prototype episode pertama.",
+      "encounters": ["green-slime", "wild-boar"],
+      "nextMaps": []
+    }
+  },
+  "monsters": {
+    "green-slime": {
+      "id": "green-slime",
+      "name": "Green Slime",
+      "wikiPath": "monster/green_slime",
+      "level": 1,
+      "hp": 24,
+      "attack": 5,
+      "defense": 1,
+      "exp": 8,
+      "spina": 12
+    },
+    "wild-boar": {
+      "id": "wild-boar",
+      "name": "Wild Boar",
+      "wikiPath": "monster/wild_boar",
+      "level": 2,
+      "hp": 34,
+      "attack": 7,
+      "defense": 2,
+      "exp": 12,
+      "spina": 20
+    }
+  }
+}

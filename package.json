@@ -1,0 +1,11 @@
+{
+  "name": "iruna-turnbased-cli",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototype game turn-based CLI dengan data JSON dan adapter Iruna Wiki.",
+  "scripts": {
+    "start": "node src/cli.js",
+    "check": "node --check src/cli.js && node --check src/game.js && node --check src/db.js && node --check src/wiki.js"
+  }
+}
